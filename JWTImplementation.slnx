@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="JWTImplementation.Models/JWTImplementation.Models.csproj" />
+  <Project Path="JWTImplementation.Register/JWTImplementation.Register.csproj" />
+  <Project Path="JWTImplementation.Validator/JWTImplementation.Validator.csproj" />
+</Solution>
