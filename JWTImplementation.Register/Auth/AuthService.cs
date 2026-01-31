@@ -27,7 +27,8 @@ public class AuthService(
                 new Claim(ClaimTypes.Role, request.Role),
             }),
             Expires = expiresAt,
-            Issuer = _configuration["Jwt:SecretKey"]!,
+            Issuer = _configuration["Jwt:Issuer"]!, //Quem emitiu o token
+            Audience = _configuration["Jwt:Audience"]!, // Para quem emitiu o token
             SigningCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(key),
                 SecurityAlgorithms.HmacSha256Signature

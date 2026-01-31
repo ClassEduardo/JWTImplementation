@@ -18,12 +18,13 @@ builder.Services.AddAuthentication(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateIssuer = true,
-        ValidateLifetime = true,
-        ValidateAudience = false,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = jwtSettings["SecretKey"],
-        IssuerSigningKey = new SymmetricSecurityKey(secretKey)
+        ValidateIssuer = true, //Verifique quem emitiu esse token.
+        ValidateLifetime = true, //Verifica expiração do token.
+        ValidateIssuerSigningKey = true, //Confirme que o token foi assinado com a chave correta.
+        ValidateAudience = false, // 
+        ValidIssuer = jwtSettings["Issuer"], // Quem emitiu o token
+        ValidAudience = jwtSettings["Audience"], // É para mim?
+        IssuerSigningKey = new SymmetricSecurityKey(secretKey) //Define qual chave é usada para validar a assinatura.
     };
 });
 
